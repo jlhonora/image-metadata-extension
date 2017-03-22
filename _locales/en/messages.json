@@ -1,0 +1,17 @@
+{
+  "extensionName": {
+    "message": "Image metadata viewer",
+    "description": "View EXIF and IPTC image metadata."
+  },
+
+  "extensionDescription": {
+    "message": "Image metadata viewer",
+    "description": "View EXIF and IPTC image metadata."
+  },
+
+  "contextMenuItemViewMetadata": {
+    "message": "View Metadata",
+    "description": "View image metadata"
+  }
+
+}

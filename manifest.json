@@ -1,0 +1,28 @@
+{
+
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.0",
+  "default_locale": "en",
+
+  "background": {
+    "scripts": ["exif.js", "process.js"]
+  },
+  
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "notifications"
+  ],
+  
+  "icons": {
+    "16": "icons/page-16.png"
+  },
+
+  "applications": {
+    "gecko" : {
+      "id": "view-metadata-extension@example.com"
+    }
+  }
+}
