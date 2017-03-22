@@ -20,6 +20,11 @@
     "16": "icons/page-16.png"
   },
 
+	"content_scripts": [{
+			"matches": ["<all_urls>"],
+			"js": ["content-script.js"]
+	}],
+
   "applications": {
     "gecko" : {
       "id": "view-metadata-extension@example.com"

@@ -1,20 +1,3 @@
-function onCreated(n) {
-  if (browser.runtime.lastError) {
-    console.log(`Error: ${browser.runtime.lastError}`);
-  } else {
-    console.log("Item created successfully");
-  }
-}
-
-/*
-Create all the context menu items.
-*/
-browser.contextMenus.create({
-  id: "view-metadata",
-  title: browser.i18n.getMessage("contextMenuItemViewMetadata"),
-  contexts: ["image"]
-}, onCreated);
-
 function debugLog(message) {
   var debug = true;
   if (debug) {
@@ -22,12 +5,26 @@ function debugLog(message) {
   }
 }
 
-var metadataText;
+// Add an entry to the context menu
+browser.contextMenus.create({
+  id: "view-metadata",
+  title: browser.i18n.getMessage("contextMenuItemViewMetadata"),
+  contexts: ["image"]
+}, onCreated);
 
-function displayMessage(text) {
-  metadataText = text;
-  var alertWindow = 'alert("' + text + '")';
-  browser.tabs.executeScript({code : alertWindow});
+function onCreated(n) {
+  if (browser.runtime.lastError) {
+    debugLog(`Error: ${browser.runtime.lastError}`);
+  } else {
+    debugLog("Item created successfully");
+  }
+}
+
+function sendMessage(message) {
+  var activeTab = browser.tabs.query({active: true, currentWindow: true});
+  activeTab.then((tabs) => {
+    browser.tabs.sendMessage(tabs[0].id, {message: message});
+  });
 }
 
 function showExifMetadata(imageUrl) {
@@ -40,7 +37,7 @@ function showExifMetadata(imageUrl) {
     }
     debugLog("Showing info");
     debugLog(text);
-    displayMessage(text);
+    sendMessage(text);
   });
 }
 
