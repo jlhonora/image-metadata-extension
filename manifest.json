@@ -7,7 +7,7 @@
   "default_locale": "en",
 
   "background": {
-    "scripts": ["exif.js", "process.js"]
+    "scripts": ["background.js"]
   },
   
   "permissions": [

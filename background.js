@@ -23,7 +23,7 @@ function onCreated(n) {
 function sendMessage(message) {
   var activeTab = browser.tabs.query({active: true, currentWindow: true});
   activeTab.then((tabs) => {
-    browser.tabs.sendMessage(tabs[0].id, {message: message});
+    browser.tabs.sendMessage(tabs[0].id, {message: message, type: "showMetadata"});
   });
 }
 
