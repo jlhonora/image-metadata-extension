@@ -27,7 +27,8 @@
 
   "applications": {
     "gecko" : {
-      "id": "view-metadata-extension@example.com"
+      "id": "view-metadata-extension@example.com",
+      "strict_min_version": "48.0"
     }
   }
 }
